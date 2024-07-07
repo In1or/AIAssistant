@@ -1,0 +1,1 @@
+{"result":{"alternatives":[{"message":{"role":"assistant","text":"44"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"739","completionTokens":"4","totalTokens":"743"},"modelVersion":"07.03.2024"}}

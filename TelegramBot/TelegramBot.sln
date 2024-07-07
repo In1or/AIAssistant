@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TelegramBot", "TelegramBot\TelegramBot.pyproj", "{455D16D3-DE9E-4EB0-81B0-6185C3507D19}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DatabaseManager", "DatabaseManager\DatabaseManager.pyproj", "{94C2CF0D-8DCB-4882-9774-7DB13A518E23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{455D16D3-DE9E-4EB0-81B0-6185C3507D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455D16D3-DE9E-4EB0-81B0-6185C3507D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C2CF0D-8DCB-4882-9774-7DB13A518E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C2CF0D-8DCB-4882-9774-7DB13A518E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8552AC59-B1B4-4ACE-8D86-48BF72497C9E}
+	EndGlobalSection
+EndGlobal
