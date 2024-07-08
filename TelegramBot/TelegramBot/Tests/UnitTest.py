@@ -73,9 +73,6 @@ class UnitTest(unittest.TestCase):
         
         with open('TestData/promptDefine.txt', 'w', encoding='utf-8') as file:
             file.write(str(prompt))
-
-        # with open('TestData/expectedPromptDefine.txt', 'w', encoding='utf-8') as file:
-        #     file.write(str(prompt))
             
         with open('TestData/expectedPromptDefine.txt', 'r', encoding='utf-8') as file:
             expected_prompt = file.read()

@@ -32,10 +32,10 @@ class YandexGPTManager:
         
 
     def send_prompt(self, prompt):
-        url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
+        url = "<url>"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Api-Key AQVNy7tzUWsPXbDWnFrVplxqpJ6c6kcpSOPyb3ER"
+            "Authorization": "Api-Key <Api-key>"
         }
 
         response = requests.post(url, headers=headers, json=prompt)
@@ -46,7 +46,7 @@ class YandexGPTManager:
 
     def __create_define_prompt(self, requests_text, user_question):
         prompt = {
-            "modelUri": "gpt://b1g9kfpcrc3g8ohj3tal/yandexgpt/latest",
+            "modelUri": "<uri>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.3,
@@ -82,7 +82,7 @@ class YandexGPTManager:
     
     def __create_response_prompt(self, requests_text, user_question):
         prompt = {
-            "modelUri": "gpt://b1g9kfpcrc3g8ohj3tal/yandexgpt/latest",
+            "modelUri": "<uri>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.3,
@@ -114,9 +114,9 @@ class YandexGPTManager:
 
         return prompt
     
-    def __create_determine_percentage_prompt(self, requests_text, user_question): # , context_for_role_system
+    def __create_determine_percentage_prompt(self, requests_text, user_question):
         prompt = {
-            "modelUri": "gpt://b1g9kfpcrc3g8ohj3tal/yandexgpt/latest",
+            "modelUri": "<uri>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.3,
@@ -151,7 +151,7 @@ class YandexGPTManager:
     
     def __create_response_not_our_area_knowledge_prompt(self, user_question):
         prompt = {
-            "modelUri": "gpt://b1g9kfpcrc3g8ohj3tal/yandexgpt/latest",
+            "modelUri": "<uri>",
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.3,

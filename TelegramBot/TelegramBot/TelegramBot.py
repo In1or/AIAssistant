@@ -52,6 +52,6 @@ class TelegramBot:
 
 
 
-token = "7314438727:AAEWvm7XJScQMrAweLtlAFA7Vs1vxuTVIww"
+token = "<Telegram token>"
 bot = TelegramBot(token)
 bot.start()

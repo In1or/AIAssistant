@@ -3,7 +3,7 @@ import json
 
 CONNECTION_STRING = (
     "Driver={ODBC Driver 18 for SQL Server};"
-    "Server=DESKTOP-FTBUDIT\SQLEXPRESS;"
+    "Server=<Server>"
     "Database=DB_AI_assistent;"
     "Trusted_Connection=yes;"
     "TrustServerCertificate=yes;"
