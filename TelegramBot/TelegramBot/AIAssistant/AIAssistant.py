@@ -12,7 +12,7 @@ class AIAssistantRemote:
         self.__model = YandexGPTManager()
         self.__incomplete_context = None
         self.__full_context = None
-        self.delay = 0
+        self.delay = 0.5
         
     def get_answer(self, query):
         self.__incomplete_context = self.__db.get_incomplete_context()
@@ -22,23 +22,6 @@ class AIAssistantRemote:
         print(incomplete_context_for_prompt)
         print()
 
-        response_chance = self.__model.get_chance(incomplete_context_for_prompt, query["question"])
-        chance_get_in_out_area_knowledge = self.__extract_number_in_text_from_response(response_chance)
-        print(response_chance)
-        
-        if chance_get_in_out_area_knowledge <= 5:
-            time.sleep(self.delay)
-            model_response = self.__model.get_response_not_our_area_knowledge(query["question"])
-            response_on_user_question = self.__extract_text_from_response(model_response)
-            print(model_response)
-
-            return response_on_user_question  
-        
-        print()
-        print(f"{chance_get_in_out_area_knowledge}% что вопрос пользователя подходит под нашу область")
-        print()
-
-        time.sleep(self.delay)
         accurate_context = self.__model.get_define_context(incomplete_context_for_prompt, query["question"])
         number_request = self.__extract_number_in_text_from_response(accurate_context)
         
@@ -48,7 +31,23 @@ class AIAssistantRemote:
         print()
         print(full_context_for_prompt)
         print()
+
+        time.sleep(self.delay)
+        response_chance = self.__model.get_chance(full_context_for_prompt["request_header"], query["question"])
+        chance_get_in_out_area_knowledge = self.__extract_number_in_text_from_response(response_chance)
+        print(response_chance)
         
+        if chance_get_in_out_area_knowledge <= 50:
+            time.sleep(self.delay)
+            model_response = self.__model.get_response_not_our_area_knowledge(query["question"])
+            response_on_user_question = self.__extract_text_from_response(model_response)
+            print(model_response)
+
+            print()
+            print(f"{chance_get_in_out_area_knowledge}% что вопрос пользователя подходит под нашу область")
+            print()
+        
+            return response_on_user_question  
 
         time.sleep(self.delay)
         model_response = self.__model.get_response_user_question(full_context_for_prompt, query["question"])
