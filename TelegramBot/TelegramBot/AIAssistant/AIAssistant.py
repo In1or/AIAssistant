@@ -12,8 +12,7 @@ class AIAssistantRemote:
         self.__model = YandexGPTManager()
         self.__incomplete_context = None
         self.__full_context = None
-        self.__response_on_user_question = None
-        self.delay = 0.75
+        self.delay = 0
         
     def get_answer(self, query):
         self.__incomplete_context = self.__db.get_incomplete_context()
@@ -30,10 +29,10 @@ class AIAssistantRemote:
         if chance_get_in_out_area_knowledge <= 5:
             time.sleep(self.delay)
             model_response = self.__model.get_response_not_our_area_knowledge(query["question"])
-            self.__response_on_user_question = self.__extract_text_from_response(model_response)
+            response_on_user_question = self.__extract_text_from_response(model_response)
             print(model_response)
 
-            return self.__response_on_user_question  
+            return response_on_user_question  
         
         print()
         print(f"{chance_get_in_out_area_knowledge}% что вопрос пользователя подходит под нашу область")
@@ -53,14 +52,14 @@ class AIAssistantRemote:
 
         time.sleep(self.delay)
         model_response = self.__model.get_response_user_question(full_context_for_prompt, query["question"])
-        self.__response_on_user_question = self.__extract_text_from_response(model_response)
+        response_on_user_question = self.__extract_text_from_response(model_response)
         
-        print(self.__response_on_user_question)
+        print(response_on_user_question)
         
-        record = self.__prepare_log_data_record(query, number_request, self.__response_on_user_question)
+        record = self.__prepare_log_data_record(query, number_request, response_on_user_question)
         self.__db.save_record_on_log_table(record)
         
-        return self.__response_on_user_question  
+        return response_on_user_question  
 
     def __format_incomplete_context_for_prompt(self, incomplete_context):
         incomplete_context_format_for_prompt = {}
